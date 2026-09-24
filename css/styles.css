@@ -239,10 +239,10 @@ img, video { display: block; max-width: 100%; }
   -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
 }
 .stills-track:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.still { position: relative; flex: 0 0 auto; scroll-snap-align: start; background: var(--placeholder); overflow: hidden; }
-.s-3-2 { width: min(72vw, 620px); aspect-ratio: 3 / 2; }
-.s-2-3 { width: min(48vw, 380px); aspect-ratio: 2 / 3; }
-.s-1-1 { width: min(60vw, 500px); aspect-ratio: 1 / 1; }
+.still {
+  position: relative; flex: 0 0 auto; width: min(60vw, 500px); aspect-ratio: 1 / 1;
+  scroll-snap-align: start; background: var(--placeholder); overflow: hidden;
+}
 
 /* 8. Statement */
 .statement { padding: 110px var(--gutter) 120px; border-top: 1px solid var(--rule-14); }
@@ -332,9 +332,7 @@ img, video { display: block; max-width: 100%; }
 
   .film-cap { flex-wrap: wrap; row-gap: 4px; }
 
-  .s-3-2 { width: 84vw; }
-  .s-2-3 { width: 62vw; }
-  .s-1-1 { width: 74vw; }
+  .still { width: 78vw; }
 
   .disciplines { grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 44px; }
   .contact-email { font-size: 22px; }
