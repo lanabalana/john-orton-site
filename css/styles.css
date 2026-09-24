@@ -319,14 +319,17 @@ img, video { display: block; max-width: 100%; }
   .hero-overlay { padding-bottom: 28px; }
 
   .section-pad, .film, .statement, .contact { padding-top: 80px; }
-  .about.section-pad { padding-bottom: 80px; }
+  .about.section-pad { padding-bottom: 44px; }
+  .clients { padding: 32px 0 36px; }
+  .clients-label { margin-bottom: 14px; }
   .reel { padding: 72px var(--gutter) 80px; }
   .stills { padding: 72px 0 80px; }
   .statement { padding-bottom: 88px; }
   .about-grid, .contact-grid { gap: 40px; }
 
-  .stat-val { font-size: 32px; }
-  .stats { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 18px; }
+  .stat-val { font-size: 28px; }
+  .stats { grid-template-columns: repeat(3, 1fr); gap: 14px; padding-top: 20px; }
+  .stat-label { margin-top: 4px; }
 
   .play-pill { padding: 12px 20px; gap: 10px; }
 
