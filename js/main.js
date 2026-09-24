@@ -99,29 +99,39 @@
     })();
   }
 
-  /* ---------- Showreel player ---------- */
-  function reel() {
-    var player = document.querySelector('.player');
-    if (!player) return;
-    var video = player.querySelector('video');
-    var btn = player.querySelector('.play-pill');
-    var label = btn.querySelector('.play-label');
+  /* ---------- Click-to-play players (showreel + film cards) ---------- */
+  function players() {
+    var all = document.querySelectorAll('.player');
+    all.forEach(function (player) {
+      var video = player.querySelector('video');
+      var btn = player.querySelector('.play-pill');
+      if (!video || !btn) return;
+      var label = btn.querySelector('.play-label');
 
-    function unavailable() {
-      player.classList.remove('is-playing');
-      btn.disabled = true;
-      label.textContent = 'Reel coming soon';
-    }
-    // The <source> fires the error if the file doesn't exist yet.
-    var source = video.querySelector('source');
-    if (source) source.addEventListener('error', unavailable);
+      function unavailable() {
+        player.classList.remove('is-playing');
+        btn.disabled = true;
+        label.textContent = 'Coming soon';
+      }
+      // A missing file fires the error on the <source> (or the video itself).
+      var source = video.querySelector('source');
+      (source || video).addEventListener('error', unavailable);
 
-    btn.addEventListener('click', function () {
-      video.controls = true;
-      var p = video.play();
-      if (p && p.catch) p.catch(function () { if (video.error) unavailable(); });
+      btn.addEventListener('click', function () {
+        video.controls = true;
+        video.muted = false; // the visitor chose to play it, so sound on
+        var p = video.play();
+        if (p && p.catch) p.catch(function () { if (video.error) unavailable(); });
+      });
+      video.addEventListener('playing', function () {
+        player.classList.add('is-playing');
+        // Only one film plays at a time.
+        all.forEach(function (other) {
+          var v = other.querySelector('video');
+          if (v && v !== video && !v.paused) v.pause();
+        });
+      });
     });
-    video.addEventListener('playing', function () { player.classList.add('is-playing'); });
   }
 
   /* ---------- Film card clips: play only while on screen ---------- */
@@ -193,7 +203,7 @@
   typeHeadings();
   reveals();
   cursor();
-  reel();
+  players();
   autoplayClips();
   form();
 })();
