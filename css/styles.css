@@ -130,8 +130,8 @@ img, video { display: block; max-width: 100%; }
   gap: 16px; margin-top: 18px; color: var(--paper);
 }
 .subtitle {
-  margin: 0; font-family: var(--display); font-weight: 700;
-  font-size: clamp(28px, 4.6vw, 80px); line-height: .9; letter-spacing: -.005em;
+  margin: 0; font-family: Montserrat, Archivo, sans-serif; font-weight: 700;
+  font-size: clamp(15px, 2.4vw, 40px); line-height: 1.1; letter-spacing: .02em;
   text-transform: uppercase; color: var(--paper);
   animation: revealUp 600ms 400ms var(--ease) both;
 }
