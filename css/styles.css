@@ -129,8 +129,10 @@ img, video { display: block; max-width: 100%; }
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
   gap: 16px; margin-top: 18px; color: var(--paper);
 }
-.tagline {
-  margin: 0; font-size: 15px; max-width: 34ch; line-height: 1.5; opacity: .92;
+.subtitle {
+  margin: 0; font-family: var(--display); font-weight: 700;
+  font-size: clamp(28px, 4.6vw, 80px); line-height: .9; letter-spacing: -.005em;
+  text-transform: uppercase; color: var(--paper);
   animation: revealUp 600ms 400ms var(--ease) both;
 }
 .scroll-hint { font-size: 11px; letter-spacing: .02em; opacity: .72; animation: bob 2.4s ease-in-out infinite; }
@@ -351,7 +353,7 @@ img, video { display: block; max-width: 100%; }
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-media, .tagline, .scroll-hint, .caret { animation: none !important; }
+  .hero-media, .subtitle, .scroll-hint, .caret { animation: none !important; }
   .marquee { animation: none; width: auto; padding: 0 var(--gutter); }
   .marquee-row { white-space: normal; flex-wrap: wrap; gap: 6px 22px; padding: 0; }
   .marquee-row + .marquee-row { display: none; }
