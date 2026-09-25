@@ -52,7 +52,7 @@ img, video { display: block; max-width: 100%; }
 .accent { color: var(--accent); }
 
 /* Media: placeholders + real images/videos fill their box */
-.ph, .hero-panel > img, .hero-panel > video,
+.ph, .hero-video,
 .portrait > img, .film-media > img, .film-media > video,
 .still > img, .player > video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
@@ -104,19 +104,16 @@ img, video { display: block; max-width: 100%; }
 
 /* 2. Hero */
 .hero { position: relative; height: 100vh; height: 100svh; min-height: 620px; background: var(--night); }
-.hero-panels { display: flex; height: 100%; gap: 2px; }
-.hero-panel {
-  position: relative; flex: 1; overflow: hidden;
-  transition: flex 700ms var(--ease);
+.hero-media {
+  position: absolute; inset: 0; overflow: hidden; background: var(--night);
   animation: wipe 900ms var(--ease) both;
 }
-.hero-panel:nth-child(2) { animation-delay: 120ms; }
-.hero-panel:nth-child(3) { animation-delay: 240ms; }
-@media (hover: hover) { .hero-panel:hover { flex: 1.9; } }
 .hero-overlay {
   position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end;
   padding: 0 var(--gutter) 40px; pointer-events: none;
-  background: linear-gradient(to top, rgba(20,18,14,.72) 0%, rgba(20,18,14,0) 46%);
+  background:
+    linear-gradient(to bottom, rgba(20,18,14,.8) 0, rgba(20,18,14,.45) 70px, rgba(20,18,14,0) 170px), /* keeps the header readable over bright footage */
+    linear-gradient(to top, rgba(20,18,14,.72) 0%, rgba(20,18,14,0) 46%);
 }
 .wordmark {
   margin: 0; font-family: var(--display); font-weight: 700;
@@ -354,7 +351,7 @@ img, video { display: block; max-width: 100%; }
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-panel, .tagline, .scroll-hint, .caret { animation: none !important; }
+  .hero-media, .tagline, .scroll-hint, .caret { animation: none !important; }
   .marquee { animation: none; width: auto; padding: 0 var(--gutter); }
   .marquee-row { white-space: normal; flex-wrap: wrap; gap: 6px 22px; padding: 0; }
   .marquee-row + .marquee-row { display: none; }

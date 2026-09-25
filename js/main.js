@@ -134,6 +134,18 @@
     });
   }
 
+  /* ---------- Hero background video ---------- */
+  function heroVideo() {
+    var v = document.querySelector('.hero-video');
+    if (!v) return;
+    // Reduced motion: stay on the poster frame.
+    if (reduceMotion) { v.removeAttribute('autoplay'); v.pause(); return; }
+    // Some browsers skip autoplay until nudged; muted video is allowed to start on its own.
+    v.muted = true;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+
   /* ---------- Film card clips: play only while on screen ---------- */
   function autoplayClips() {
     var vids = document.querySelectorAll('video[data-autoplay]');
@@ -204,6 +216,7 @@
   reveals();
   cursor();
   players();
+  heroVideo();
   autoplayClips();
   form();
 })();

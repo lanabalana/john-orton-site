@@ -36,10 +36,13 @@
 
 <!-- 1. HERO -->
 <section id="top" class="hero">
-  <div class="hero-panels">
-    <div class="hero-panel"><img src="assets/images/hero-birmingham-skyline.jpg" alt="Birmingham skyline at dusk" width="1600" height="1600" fetchpriority="high"></div>
-    <div class="hero-panel"><img src="assets/images/hero-colonnade.jpg" alt="A curving white stucco colonnade on a London terrace" width="1200" height="1800" fetchpriority="high"></div>
-    <div class="hero-panel"><img src="assets/images/hero-rotunda.jpg" alt="The Bullring Rotunda in Birmingham, black and white" width="1800" height="1800" fetchpriority="high"></div>
+  <!-- Full-screen background video (Portfolio Showreel 2025, silent).
+       Upright phones get a tall centre crop; everything else gets the full-HD version. -->
+  <div class="hero-media">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/images/hero-poster.jpg" aria-hidden="true">
+      <source src="assets/videos/hero-desktop.mp4" type="video/mp4" media="(min-width: 768px), (orientation: landscape)">
+      <source src="assets/videos/hero-mobile.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="hero-overlay">
     <h1 class="wordmark" aria-label="John Orton"><span class="wordmark-text" aria-hidden="true">John Orton</span><span class="caret" aria-hidden="true">&nbsp;</span></h1>
